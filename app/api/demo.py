@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException
-from app.schema.demo import Item
+from app.schemas.demo import Item
+from config.core.settings import get_settings
 
 router = APIRouter()
-
 
 # 模拟数据库：用字典存储商品数据
 items_db = {}
@@ -10,6 +10,8 @@ items_db = {}
 
 @router.get("")
 async def read_root():
+    settings = get_settings()
+    print(settings)
     return {"Hello": "World"}
 
 
