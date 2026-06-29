@@ -23,6 +23,7 @@ items_db = {}
 
 @app.get("/")
 async def read_root():
+    1 / 0
     return {"Hello": "World"}
 
 
