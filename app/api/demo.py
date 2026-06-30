@@ -11,8 +11,7 @@ items_db = {}
 @router.get("")
 async def read_root():
     settings = get_settings()
-    print(settings)
-    return {"Hello": "World"}
+    return {"Hello": "World", **settings.model_dump(), "env": settings.environment}
 
 
 # 参数类型会自动校验
